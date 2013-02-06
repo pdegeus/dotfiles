@@ -18,5 +18,10 @@ export LESS_TERMCAP_md="$ORANGE"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+# Change directory colors from dark blue
+export CLICOLOR=1
+export LSCOLORS=Hxfxcxdxbxegedabagacad
+#export LS_COLORS="ow=01;90:di=01;90"
+
 # Set Java version to 1.7
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+[ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.7`

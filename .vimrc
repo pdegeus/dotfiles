@@ -2,10 +2,12 @@ syntax on
 
 set nocompatible
 set encoding=utf8 nobomb
-set bg=dark
 set incsearch hlsearch
 set esckeys
 set clipboard=unnamed
+
+set bg=dark
+colorscheme molokai 
 
 " No annoying sound on errors
 set noerrorbells
