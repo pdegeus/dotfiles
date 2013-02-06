@@ -1,3 +1,14 @@
+# IDE files
+.classpath
+.settings
+.project
+.idea
+*.iml
+
+# Maven & build dirs
+target
+build
+
 # Compiled Python files
 *.pyc
 
