@@ -1,5 +1,5 @@
-# Add `~/bin` to the `$PATH`
-export PATH="/opt/local/bin:/opt/local/sbin:$HOME/bin:$PATH"
+# Add ~/.bin  to the path, make sure custom installed stuff has prio
+export PATH="/opt/local/bin:/opt/local/sbin:$HOME/.bin:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -34,6 +34,9 @@ complete -W "NSGlobalDomain" defaults
 
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
+
+# Maven completion
+complete -o "nospace" -W "integration-test package verify compile clean validate test install deploy process-resources process-test-resources generate-sources generate-resources" mvn
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
