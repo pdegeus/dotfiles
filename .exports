@@ -27,3 +27,7 @@ export LS_COLORS="ow=01;97:di=01;97"
 # Java options
 [ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export MAVEN_OPTS="-XX:MaxPermSize=256m -Xms512m -Xmx1024m"
+
+# Apache user
+export APACHE_RUN_USER=www-data
+export APACHE_RUN_GROUP=www-data
