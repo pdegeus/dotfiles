@@ -1,6 +1,14 @@
 # Use shell-style glob syntax
 syntax: glob
 
+# IDE files
+.classpath
+.project
+.settings
+target
+.idea
+*.iml
+
 # Compiled Python files
 *.pyc
 
