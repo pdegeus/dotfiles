@@ -18,6 +18,9 @@ sudo scutil --set HostName "Peppin Pro"
 sudo scutil --set LocalHostName "Peppin-Pro"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Peppin-Pro"
 
+# Set standby delay to 4 hours (default is 1 hour)
+sudo pmset -a standbydelay 14400
+
 # Menu bar: disable transparency
 #defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
