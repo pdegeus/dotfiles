@@ -37,11 +37,6 @@ alias la="ls -la ${colorflag}"
 # List only directories
 alias lsd='ls -l ${colorflag} | grep "^d"'
 
-# Color grep results
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
@@ -49,7 +44,10 @@ alias ls="command ls ${colorflag}"
 alias sudo='sudo '
 
 # Gzip-enabled `curl`
-alias gurl="curl --compressed"
+alias gurl='curl --compressed'
+
+# Get week number
+alias week='date +%V'
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 #alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
