@@ -38,7 +38,8 @@ defaults write NSGlobalDomain AppleHighlightColor -string '0.764700 0.976500 0.5
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
 # Always show scrollbars
-#defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+# Possible values: `WhenScrolling`, `Automatic` and `Always`
+defaults write NSGlobalDomain AppleShowScrollBars -string "Automatic"
 
 # Disable smooth scrolling
 # (Uncomment if you’re on an older Mac that messes up the animation)

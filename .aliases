@@ -19,6 +19,7 @@ alias v="vim"
 #alias s="subl ."
 alias o="open"
 alias oo="open ."
+alias coda="open -a Coda"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -49,13 +50,13 @@ alias gurl='curl --compressed'
 # Get week number
 alias week='date +%V'
 
-# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-#alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
+# Get OS X Software Updates, and update installed Ports
+alias update='sudo softwareupdate -i -a; sudo port selfupdate; sudo port upgrade outdated'
 
 # IP addresses
 #alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 #alias localip="ipconfig getifaddr en1"
-#alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
+alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
