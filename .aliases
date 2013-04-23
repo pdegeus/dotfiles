@@ -10,6 +10,7 @@ alias -- -="cd -"
 #alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
+alias dev="cd ~/Development"
 #alias p="cd ~/Projects"
 #alias g="git"
 alias h="history"
@@ -20,6 +21,8 @@ alias v="vim"
 alias o="open"
 alias oo="open ."
 alias coda="open -a Coda"
+alias edit="open -t"
+alias rvl="open -R"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
