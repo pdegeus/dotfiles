@@ -53,9 +53,6 @@ alias gurl='curl --compressed'
 # Get week number
 alias week='date +%V'
 
-# Get OS X Software Updates, and update installed Ports
-alias update='sudo softwareupdate -i -a; sudo port selfupdate; sudo port upgrade outdated'
-
 # IP addresses
 #alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 #alias localip="ipconfig getifaddr en1"
