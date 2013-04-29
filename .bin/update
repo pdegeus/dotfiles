@@ -7,23 +7,27 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 if [[ `uname -s` = "Darwin" ]]; then
-    echo "Detected OSX, performing software update…"
-    echo
+    echo "-------------------------------------------"
+    echo "Detected OSX, performing software update..."
+    echo "-------------------------------------------"
     sudo softwareupdate -i -a
     
     PORT=`port version`
     if [[ PORT != "" ]]; then
+        echo "-------------------------------------------"
         echo "Found MacPorts $PORT, updating..."
+        echo "-------------------------------------------"
         sudo port selfupdate
         sudo port upgrade outdated
     fi
     
 elif [[ `whereis apt-get` != "" ]]; then
+    echo "-------------------------------------------"
     echo "Detected APT, performing update & upgrade..."
-    echo
+    echo "-------------------------------------------"
     sudo apt-get update
     sudo apt-get upgrade
 else
-    echo "Unsupported OS"
+    echo "Sorry, no supported update mechanism found."
 fi
 
