@@ -11,15 +11,28 @@ if [[ `uname -s` = "Darwin" ]]; then
     echo "Detected OSX, performing software update..."
     echo "-------------------------------------------"
     sudo softwareupdate -i -a
+    echo
     
-    PORT=`port version`
-    if [[ PORT != "" ]]; then
+    PORT=`port version 2>/dev/null`
+    if [[ "$PORT" != "" ]]; then
         echo "-------------------------------------------"
         echo "Found MacPorts $PORT, updating..."
         echo "-------------------------------------------"
         sudo port selfupdate
         sudo port upgrade outdated
+        echo
     fi
+
+	BREW=`brew --config | grep HOMEBREW_VERSION | sed -e 's/HOMEBREW_VERSION: \(.*\)/\1/' 2>/dev/null`
+	if [[ "$BREW" != "" ]]; then
+        echo "-------------------------------------------"
+        echo "Found Brew $BREW, updating..."
+        echo "-------------------------------------------"
+		brew update
+		brew upgrade
+		brew cleanup
+        echo
+	fi
     
 elif [[ `whereis apt-get` != "" ]]; then
     echo "-------------------------------------------"
@@ -28,6 +41,7 @@ elif [[ `whereis apt-get` != "" ]]; then
     sudo apt-get update
     sudo apt-get upgrade
 	sudo apt-get autoremove
+    echo
 else
     echo "Sorry, no supported update mechanism found."
 fi

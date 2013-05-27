@@ -27,7 +27,7 @@ export LS_COLORS="ow=01;97:di=01;97"
 # Java options
 [ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
 export MAVEN_OPTS="-XX:MaxPermSize=256m -Xms512m -Xmx1024m"
-export GROOVY_HOME=`ls -d /opt/groovy-* 2>/dev/null`
+export GROOVY_HOME=`ls -d /opt/groovy-* 2>/dev/null || ls -d /usr/local/groovy-* 2>/dev/null`
 export JBOSS_HOME=`ls -d /opt/jboss* 2>/dev/null || ls -d /usr/local/jboss* 2>/dev/null`
 
 # Apache user
