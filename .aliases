@@ -22,6 +22,7 @@ alias o="open"
 alias oo="open ."
 alias coda="open -a Coda"
 alias edit="open -t"
+alias subl="open -a 'Sublime Text 2'"
 alias rvl="open -R"
 
 # Detect which `ls` flavor is in use

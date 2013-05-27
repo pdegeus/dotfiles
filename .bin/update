@@ -27,6 +27,7 @@ elif [[ `whereis apt-get` != "" ]]; then
     echo "-------------------------------------------"
     sudo apt-get update
     sudo apt-get upgrade
+	sudo apt-get autoremove
 else
     echo "Sorry, no supported update mechanism found."
 fi
