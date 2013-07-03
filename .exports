@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 # Make vim the default editor
 export EDITOR="vim"
 
@@ -34,13 +32,6 @@ export JBOSS_HOME=`ls -d /opt/jboss* 2>/dev/null || ls -d /usr/local/jboss* 2>/d
 # Apache user
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
-
-if [ "x$GROOVY_HOME" != "x" ]; then
-	export PATH="$PATH:$GROOVY_HOME/bin"
-fi
-if [ "x$JBOSS_HOME" != "x" ]; then
-	export PATH="$PATH:$JBOSS_HOME/bin"
-fi
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"

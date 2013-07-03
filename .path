@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Add ~/.bin  to the path, make sure custom installed stuff has prio
+export PATH="/opt/local/bin:/opt/local/sbin:$HOME/.bin:$PATH"
+
+if [ "x$GROOVY_HOME" != "x" ]; then
+	export PATH="$PATH:$GROOVY_HOME/bin"
+fi
+if [ "x$JBOSS_HOME" != "x" ]; then
+	export PATH="$PATH:$JBOSS_HOME/bin"
+fi

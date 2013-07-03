@@ -1,10 +1,7 @@
-# Add ~/.bin  to the path, make sure custom installed stuff has prio
-export PATH="/opt/local/bin:/opt/local/sbin:$HOME/.bin:$PATH"
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+for file in ~/.{exports,path,bash_prompt,aliases,functions,extra}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file
