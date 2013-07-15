@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ $# -ne 1 ]; then
+	echo "Usage: $0 <pid>"
+	exit 1;
+fi
+
+jmap -heap $1 > vmdump.$1.heap
+jmap -histo $1 > vmdump.$1.histo
+jstack -l $1 > vmdump.$1.stack
+jmap -dump:live,file=vmdump.$1.live.hprof,format=b $1
+jmap -dump:file=vmdump.$1.full.hprof,format=b $1
+
+echo
+ls -l vmdump.$1.*
