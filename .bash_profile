@@ -36,7 +36,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 complete -o "nospace" -W "integration-test package verify compile clean validate test install deploy process-resources process-test-resources generate-sources generate-resources" mvn
 
 # Brew completion
-source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+[ `brew --repository &> /dev/null` ] && {
+	source `brew --repository`/Library/Contributions/brew_bash_completion.sh
+}
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
