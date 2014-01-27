@@ -25,6 +25,11 @@ alias edit="open -t"
 alias subl="open -a 'Sublime Text 2'"
 alias rvl="open -R"
 
+alias mi="mvn install"
+alias mci="mvn clean install"
+alias mp="mvn package"
+alias mcp="mvn clean package"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
