@@ -9,6 +9,3 @@ fi
 if [ "x$JBOSS_HOME" != "x" ]; then
 	export PATH="$PATH:$JBOSS_HOME/bin"
 fi
-if [ "x$WILDFLY_HOME" != "x" ]; then
-	export PATH="$PATH:$WILDFLY_HOME/bin"
-fi
