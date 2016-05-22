@@ -50,6 +50,8 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
 
+alias grep="grep --color=auto"
+
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 

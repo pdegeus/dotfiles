@@ -33,8 +33,5 @@ export JBOSS_HOME=`ls -d /opt/jboss* 2>/dev/null || ls -d /usr/local/jboss* 2>/d
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
-
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
