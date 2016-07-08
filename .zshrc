@@ -1,7 +1,13 @@
 DEFAULT_USER=pdegeus
 ZSH_THEME="agnoster"
 
-source $(brew --prefix)/share/antigen.zsh
+AGEN=""
+which brew > /dev/null && {
+	AGEN="$(brew --prefix)/share/antigen.zsh"
+} || {
+	AGEN="/usr/share/zsh-antigen/antigen.zsh"
+}
+[ -f "$AGEN" ] && source "$AGEN"
 
 antigen use oh-my-zsh
 antigen theme agnoster
