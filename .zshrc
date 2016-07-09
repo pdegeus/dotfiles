@@ -1,6 +1,15 @@
 DEFAULT_USER=pdegeus
 ZSH_THEME="agnoster"
 
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{exports,path,aliases,functions,extra}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
+
+#Find and load Antigen
 AGEN=""
 which brew > /dev/null && {
 	AGEN="$(brew --prefix)/share/antigen.zsh"
@@ -11,6 +20,7 @@ which brew > /dev/null && {
 
 antigen use oh-my-zsh
 antigen theme agnoster
+antigen bundle zsh-users/zsh-syntax-highlighting
 which git > /dev/null && antigen bundle git
 which svn > /dev/null && antigen bundle svn-fast-info
 which mvn > /dev/null && antigen bundle mvn 
@@ -23,14 +33,7 @@ which brew > /dev/null && {
 	antigen bundle brew
 }
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,path,aliases,functions,extra}; do
-	[ -r "$file" ] && source "$file"
-done
-unset file
-
+# iTerm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Uncomment the following line to use case-sensitive completion.
