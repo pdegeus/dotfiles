@@ -21,6 +21,7 @@ which brew > /dev/null && {
 antigen use oh-my-zsh
 antigen theme agnoster
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle command-not-found
 which git > /dev/null && antigen bundle git
 which svn > /dev/null && antigen bundle svn-fast-info
 which mvn > /dev/null && antigen bundle mvn 

@@ -6,7 +6,7 @@ function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "install-zsh.sh" \
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" -av --no-perms . ~
 
-	source ./install-zsh.sh
+	source ./install.sh
 	[[ -n "$BASH" ]] && source ~/.bash_profile
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

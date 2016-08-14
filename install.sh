@@ -1,12 +1,16 @@
 #!/bin/bash
 
-CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
-if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
-	echo "Installing ZSH..."
-	which apt-get && sudo apt-get -y install zsh zsh-antigen
-	which brew && brew install zsh antigen
-fi
-unset CHECK_ZSH_INSTALLED
+which brew &>/dev/null && {
+	brew update
+	brew tap homebrew/command-not-found
+	brew install zsh antigen maven 
+}
+
+which apt-get &>/dev/null && {
+	sudo apt-get update
+	sudo apt-get -y install zsh zsh-antigen 
+}
+
 
 # If this user's login shell is not already "zsh", attempt to switch.
 TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
