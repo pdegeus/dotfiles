@@ -2,15 +2,21 @@
 
 which brew &>/dev/null && {
 	brew update
-	brew tap homebrew/command-not-found
-	brew install zsh antigen maven 
+	brew install zsh maven git
 }
 
 which apt-get &>/dev/null && {
 	sudo apt-get update
-	sudo apt-get -y install zsh zsh-antigen 
+	sudo apt-get -y install zsh git
 }
 
+if [[ -e ~/.zprezto ]]; then
+	pushd ~/.zprezto
+	git pull && git submodule update --init --recursive
+	popd
+else 
+	git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
+fi
 
 # If this user's login shell is not already "zsh", attempt to switch.
 TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')

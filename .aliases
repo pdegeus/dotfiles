@@ -1,15 +1,16 @@
-[[ -n "$BASH" ]] && {
-	alias ..="cd .."
-	alias ...="cd ../.."
-	alias ....="cd ../../.."
-	alias .....="cd ../../../.."
-	alias -- -="cd -"
+alias -- -="cd -"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+	
+alias mvni="mvn install"
+alias mvnc="mvn clean"
+alias mvnci="mvn clean install"
+alias mvnp="mvn package"
+alias mvncp="mvn clean package"
 
-	alias mvni="mvn install"
-	alias mvnc="mvn clean"
-	alias mvnci="mvn clean install"
-	alias mvnp="mvn package"
-	alias mvncp="mvn clean package"
+[[ -n "$BASH" ]] && {
 
 	# Detect which `ls` flavor is in use
 	if ls --color > /dev/null 2>&1; then # GNU `ls`
