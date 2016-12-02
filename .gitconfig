@@ -33,6 +33,7 @@
 	whitespace = nowarn
 
 [core]
+	editor = vi
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
