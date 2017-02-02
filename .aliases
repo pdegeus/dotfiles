@@ -38,7 +38,6 @@ alias o="open"
 alias oo="open ."
 alias coda="open -a Coda"
 alias edit="open -t"
-alias idea="/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
 alias grep="grep --color=auto"
