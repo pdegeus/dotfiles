@@ -2,7 +2,7 @@
 .classpath
 .settings
 .project
-.idea
+.idea/
 *.iml
 
 # Maven & build dirs
