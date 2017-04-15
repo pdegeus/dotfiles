@@ -2,7 +2,8 @@
 
 which brew &>/dev/null && {
 	brew update
-	brew install zsh maven git
+	brew upgrade
+	brew install zsh maven git svn wget
 }
 
 which apt-get &>/dev/null && {

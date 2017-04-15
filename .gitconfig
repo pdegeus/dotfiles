@@ -40,6 +40,7 @@
 	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
 	# space-before-tab,indent-with-non-tab,trailing-space
 	whitespace = nowarn
+	autocrlf = input
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -82,3 +83,5 @@
 
 [push]
 	default = matching
+[pull]
+	rebase = true
