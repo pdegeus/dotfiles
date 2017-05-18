@@ -39,6 +39,7 @@ elif [[ `whereis apt-get` != "" ]]; then
     echo "Detected APT, performing update & upgrade..."
     echo "-------------------------------------------"
     sudo apt-get update
+	sudo apt-get autoremove
     sudo apt-get upgrade
 	sudo apt-get autoremove
     echo
