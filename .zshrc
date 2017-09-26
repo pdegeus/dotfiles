@@ -3,7 +3,7 @@ DEFAULT_USER=pdegeus
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,path,aliases,functions,extra}; do
+for file in ~/.{exports,path,aliases,functions,extra,motd}; do
 	[ -r "$file" ] && source "$file"
 done
 unset file

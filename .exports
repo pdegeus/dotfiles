@@ -25,15 +25,11 @@ export LS_COLORS="ow=01;97:di=01;97"
 
 # Java options
 [ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-[ -n "$JAVA_HOME" ] && echo "Using Java from $JAVA_HOME"
 export MAVEN_OPTS="-Xms512m -Xmx1024m"
 
 which setopt &>/dev/null && setopt null_glob
 export GROOVY_HOME=`ls -dt /opt/groovy-* /usr/local/groovy-* 2>/dev/null | egrep -v "^\.$" | head -1`
 export JBOSS_HOME=`ls -dt /opt/jboss* /usr/local/jboss* /opt/wildfly* /usr/local/wildfly* 2>/dev/null | egrep -v "^\.$" | head -1`
-
-[ -n "$GROOVY_HOME" ] && echo "Using Groovy from $GROOVY_HOME"
-[ -n "$JBOSS_HOME" ] && echo "Using JBoss from $JBOSS_HOME"
 
 # Apache user
 export APACHE_RUN_USER=www-data
