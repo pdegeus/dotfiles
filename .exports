@@ -24,7 +24,7 @@ export LSCOLORS=Hxfxcxdxbxegedabagacad
 export LS_COLORS="ow=01;97:di=01;97"
 
 # Java options
-[ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+[ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 9`
 export MAVEN_OPTS="-Xms512m -Xmx1024m"
 
 which setopt &>/dev/null && setopt null_glob
