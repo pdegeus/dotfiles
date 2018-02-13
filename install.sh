@@ -8,14 +8,14 @@ which brew &>/dev/null && {
 
 which apt-get &>/dev/null && {
 	sudo apt-get update
-	sudo apt-get -y install zsh git
+	sudo apt-get -y install zsh git wget curl
 }
 
-if [[ -e ~/.zprezto ]]; then
-	pushd ~/.zprezto
-	git pull && git submodule update --init --recursive
-	popd
-else 
+which zprezto-update &>/dev/null && {
+	zprezto-update
+}
+
+if [[ ! -e ~/.zprezto ]]; then
 	git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 fi
 
