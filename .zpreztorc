@@ -24,6 +24,7 @@ zstyle ':prezto:*:*' color 'yes'
 # Set the Prezto modules to load (browse modules).
 # The order matters.
 zstyle ':prezto:load' pmodule \
+  'archive' \
   'environment' \
   'terminal' \
   'editor' \
@@ -34,7 +35,8 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'completion' \
   'syntax-highlighting' \
-  'prompt'
+  'prompt' \
+  'screen'
 
 #
 # Autosuggestions
@@ -111,7 +113,7 @@ zstyle ':prezto:module:prompt' theme 'agnoster'
 # zstyle ':prezto:module:screen:auto-start' local 'yes'
 
 # Auto start a session when Zsh is launched in a SSH connection.
-# zstyle ':prezto:module:screen:auto-start' remote 'yes'
+zstyle ':prezto:module:screen:auto-start' remote 'yes'
 
 #
 # SSH

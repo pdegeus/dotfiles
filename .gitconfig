@@ -1,6 +1,6 @@
 [user]
     name = Pepijn de Geus
-    email = pdegeus@me.com
+    email = pepijn@dvelop.nl
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
