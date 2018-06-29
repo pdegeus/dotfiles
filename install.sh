@@ -8,7 +8,7 @@ which brew &>/dev/null && {
 
 which apt-get &>/dev/null && {
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl
+	sudo apt-get -y install zsh git wget curl screen
 }
 
 which zprezto-update &>/dev/null && {
