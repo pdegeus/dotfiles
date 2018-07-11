@@ -14,4 +14,4 @@ termcapinfo xterm*|rxvt-* ti@:te=\E[3J
 termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
 termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
 attrcolor b ".I"        # allow bold colors - necessary for some reason
-term 'xterm-256color'   # 256 terminal for xterm
+term 'screen-256color'   # 256 terminal for xterm
