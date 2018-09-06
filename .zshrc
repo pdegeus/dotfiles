@@ -1,13 +1,5 @@
 DEFAULT_USER=pdegeus
 
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,path,aliases,functions,extra,motd}; do
-	[ -r "$file" ] && source "$file"
-done
-unset file
-
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
     source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -50,4 +42,12 @@ COMPLETION_WAITING_DOTS="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{exports,path,aliases,functions,extra,motd}; do
+	[ -r "$file" ] && source "$file"
+done
+unset file
 

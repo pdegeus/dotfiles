@@ -3,7 +3,11 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget
+	brew install zsh maven git svn wget ruby watch zopfli sqlite
+}
+
+which gem &>/dev/null && {
+	gem install colorls
 }
 
 which apt-get &>/dev/null && {
