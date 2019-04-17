@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # Add ~/.bin  to the path, make sure custom installed stuff has prio
-export PATH="/opt/local/bin:/opt/local/sbin:$HOME/.bin:$PATH"
+export PATH="/opt/local/bin:/opt/local/sbin:/usr/local/opt/ruby/bin:$HOME/.bin:$PATH"
+
+for RUBY_BIN in `find /usr/local/lib/ruby/gems -maxdepth 2 -type d -name bin 2>/dev/null`; do
+	export PATH="$PATH:$RUBY_BIN"
+done
 
 if [ "x$GROOVY_HOME" != "x" ]; then
 	export PATH="$PATH:$GROOVY_HOME/bin"

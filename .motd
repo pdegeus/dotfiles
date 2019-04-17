@@ -1,5 +1,10 @@
 #!/bin/bash
 
+which artii &>/dev/null && {
+	artii `hostname` | lolcat
+	echo
+}
+
 zsh --version
 if [[ `which mvn &>/dev/null` ]]; then
 	mvn -version | head -4
