@@ -7,7 +7,7 @@ which brew &>/dev/null && {
 }
 
 which gem &>/dev/null && {
-	gem install colorls artii lolcat
+	gem install colorls artii lolcat || sudo gem install colorls artii lolcat
 }
 
 which apt-get &>/dev/null && {
