@@ -3,8 +3,10 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget ruby watch zopfli sqlite
+	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu
 }
+
+which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 which gem &>/dev/null && {
 	gem install colorls artii lolcat || sudo gem install colorls artii lolcat

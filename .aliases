@@ -36,6 +36,10 @@ which colorls &>/dev/null && {
 	}
 }
 
+which bat &>/dev/null && alias cat='bat'
+which prettyping &>/dev/null && alias ping='prettyping --nolegend'
+which ncdu &>/dev/null && alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
