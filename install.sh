@@ -8,13 +8,13 @@ which brew &>/dev/null && {
 
 which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
-which gem &>/dev/null && {
-	gem install colorls artii lolcat || sudo gem install colorls artii lolcat
-}
-
 which apt-get &>/dev/null && {
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl screen
+	sudo apt-get -y install zsh git wget curl screen ruby ruby-dev
+}
+
+which gem &>/dev/null && {
+	gem install colorls artii lolcat || sudo gem install colorls artii lolcat
 }
 
 which zprezto-update &>/dev/null && {
