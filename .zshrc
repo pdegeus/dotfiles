@@ -51,3 +51,5 @@ for file in ~/.{exports,path,aliases,functions,extra,motd}; do
 done
 unset file
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

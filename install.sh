@@ -3,14 +3,16 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu
+	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf
+	$(brew --prefix)/opt/fzf/install --all
 }
 
 which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 which apt-get &>/dev/null && {
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl screen ruby ruby-dev
+	sudo apt-get -y install zsh git wget curl screen ruby ruby-dev fzf
+	cp /usr/share/doc/fzf/examples/key-bindings.zsh ~/.fzf.zsh
 }
 
 which gem &>/dev/null && {
