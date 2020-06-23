@@ -28,8 +28,8 @@ export LS_COLORS="ow=01;97:di=01;97"
 export MAVEN_OPTS="-Xms512m -Xmx1024m"
 
 which setopt &>/dev/null && setopt null_glob
-export GROOVY_HOME=`ls -dt /opt/groovy-* /usr/local/groovy-* 2>/dev/null | egrep -v "^\.$" | head -1`
-export JBOSS_HOME=`ls -dt /opt/jboss* /usr/local/jboss* /opt/wildfly* /usr/local/wildfly* 2>/dev/null | egrep -v "^\.$" | head -1`
+export GROOVY_HOME=`command ls -dt /opt/groovy-* /usr/local/groovy-* 2>/dev/null | egrep -v "^\.$" | head -1`
+export JBOSS_HOME=`command ls -dt /opt/jboss* /usr/local/jboss* /opt/wildfly* /usr/local/wildfly* 2>/dev/null | egrep -v "^\.$" | head -1`
 
 # Apache user
 export APACHE_RUN_USER=www-data
