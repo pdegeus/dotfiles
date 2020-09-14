@@ -55,3 +55,10 @@ else
     echo "Sorry, no supported update mechanism found."
 fi
 
+which zprezto-update &>/dev/null && {
+	echo "-------------------------------------------"
+	echo "Found zprezto, updating..."
+	echo "-------------------------------------------"
+	zprezto-update
+}
+

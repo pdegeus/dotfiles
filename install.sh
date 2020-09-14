@@ -23,6 +23,10 @@ which zprezto-update &>/dev/null && {
 	zprezto-update
 }
 
+which pip &>/dev/null && {
+	pip install pygments
+}
+
 if [[ ! -e ~/.zprezto ]]; then
 	git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 fi
