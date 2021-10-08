@@ -37,3 +37,6 @@ export APACHE_RUN_GROUP=www-data
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+export GOPATH=/opt/go
+export GOROOT="$(brew --prefix golang)/libexec"
