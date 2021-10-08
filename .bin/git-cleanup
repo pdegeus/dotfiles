@@ -1,0 +1,75 @@
+#!/bin/sh
+
+CLEANUP_BASE_BRANCH="$(git config --get cleanup.base)"
+
+function usage() {
+  printf "usage: $(basename $0) [noop|usage]\n\n"
+  printf "Finds local branches that have already been merged into the main branch, usually\n"
+  printf "master, and offers to delete both the local and remote copy for you.\n"
+  printf "\n"
+  printf "If a branch other than master exists, you can set cleanup.base setting equal to\n"
+  printf "the name of your master branch.\n"
+}
+
+function get_branches_to_clean() {
+  local curr=$(git branch | egrep '^\*' | cut -d ' ' -f 2)
+  local base=${CLEANUP_BASE_BRANCH:-"master"}
+
+  [[ "$curr" == "${base}" ]] || git checkout $base &>/dev/null
+  if [ $? -eq 0 ]; then
+    local to_clean="$(git branch --merge|egrep -v "^[\*\ ] (${base}|${curr})$"|sed 's/^[[:space:]]*//g')"
+    [[ "$curr" == "${base}" ]] || git checkout $curr &>/dev/null
+    local branch=""
+    for branch in $to_clean; do
+      is_branch_ignored $branch
+      [[ $? -eq 0 ]] && echo $branch
+    done
+  else
+    printf "unable to switch to branch '${base}'\n"
+    printf "\n"
+    printf "This usually happens when your base branch is something other than 'master'.\n"
+    printf "If this describes your situation, try running the following command replacing\n"
+    printf "\$BRANCH with the base branch for your repository\n\n"
+    printf "   $ git config cleanup.base \$BRANCH\n"
+    exit
+  fi
+}
+
+function is_branch_ignored() {
+  local branch=$1
+  local ignore=$(git config --get cleanup.ignore)
+  for b in $ignore; do
+    [[ "$branch" == "$b" ]] && return 1
+  done
+  return 0
+}
+
+if  [ $# -gt 1 ]; then
+  usage
+  exit 1
+fi
+
+opt=$(echo $1 | tr '[:upper:]' '[:lower:]')
+
+if [ "$opt" == "usage" ] || [ "$opt" == "u" ]; then
+  usage
+  exit 1
+elif [ "$opt" == "noop" ] || [ "$opt" == "n" ]; then
+  get_branches_to_clean
+  exit
+else
+  to_clean=$(get_branches_to_clean)
+  [[ "$to_clean" == "" ]] && exit
+  printf "please confirm you want to clean (remove) the following local branches:\n\n  Branches:\n\n"
+  for br in $to_clean; do
+    printf "  $br\n"
+  done
+  printf "\n> (y|N): "
+  read ans
+  ans=$(echo $ans | tr '[:upper:]' '[:lower:]')
+  if [ "$ans" == "yes" ] || [ "$ans" == "y" ]; then
+    for br in $to_clean; do
+      git branch -d $br 2>&1 1>/dev/null && git push origin :$br 2>&1 1>/dev/null
+    done
+  fi
+fi
