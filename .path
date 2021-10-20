@@ -13,9 +13,3 @@ fi
 if [ "x$JBOSS_HOME" != "x" ]; then
 	export PATH="$PATH:$JBOSS_HOME/bin"
 fi
-if [ -d "${GOPATH}/bin" ]; then
-	export PATH="$PATH:${GOPATH}/bin"
-	if [ -d "${GOROOT}/bin" ]; then
-		export PATH="$PATH:${GOROOT}/bin"
-	fi
-fi
