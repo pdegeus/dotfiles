@@ -3,7 +3,7 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf
+	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq
 	$(brew --prefix)/opt/fzf/install --all
 }
 

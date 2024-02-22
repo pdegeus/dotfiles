@@ -24,12 +24,17 @@ export LSCOLORS=Hxfxcxdxbxegedabagacad
 export LS_COLORS="ow=01;97:di=01;97"
 
 # Java options
-[ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+if [ -f ~/.sdkman/bin/sdkman-init.sh ]; then
+	source ~/.sdkman/bin/sdkman-init.sh
+else
+	[ -e /usr/libexec/java_home ] && export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+fi
+
 export MAVEN_OPTS="-Xms512m -Xmx1024m"
 
 which setopt &>/dev/null && setopt null_glob
 export GROOVY_HOME=`command ls -dt /opt/groovy-* /usr/local/groovy-* 2>/dev/null | egrep -v "^\.$" | head -1`
-export JBOSS_HOME=`command ls -dt /opt/jboss* /usr/local/jboss* /opt/wildfly* /usr/local/wildfly* 2>/dev/null | egrep -v "^\.$" | head -1`
+#export JBOSS_HOME=`command ls -dt /opt/jboss* /usr/local/jboss* /opt/wildfly* /usr/local/wildfly* 2>/dev/null | egrep -v "^\.$" | head -1`
 
 # Apache user
 export APACHE_RUN_USER=www-data
