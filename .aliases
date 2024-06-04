@@ -11,10 +11,9 @@ alias mvnp="mvn package"
 alias mvncp="mvn clean package"
 alias mvnv="mvn -U versions:update-parent versions:update-properties -DgenerateBackupPoms=false"
 
-which colorls &>/dev/null && {
-    alias ls="colorls --gs --sd"
-	alias ll="ls -l"
-    source $(dirname $(gem which colorls))/tab_complete.sh
+which lsd &>/dev/null && {
+    alias ls="lsd"
+	alias ll="lsd -l"
 } || {
 	[[ -n "$BASH" ]] && {
 

@@ -3,7 +3,7 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq
+	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq lsd neofetch
 	$(brew --prefix)/opt/fzf/install --all
 }
 
@@ -11,17 +11,12 @@ which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy
 
 which apt-get &>/dev/null && {
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl screen ruby ruby-dev fzf
+	sudo apt-get -y install zsh git wget curl screen ruby ruby-dev fzf snapd neofetch
+	sudo snap install lsd
 	cp /usr/share/doc/fzf/examples/key-bindings.zsh ~/.fzf.zsh
 }
 
-which gem &>/dev/null && {
-	gem install colorls artii lolcat || sudo gem install colorls artii lolcat
-}
-
-which zprezto-update &>/dev/null && {
-	zprezto-update
-}
+zprezto-update
 
 which pip &>/dev/null && {
 	pip install pygments

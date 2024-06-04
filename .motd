@@ -1,9 +1,8 @@
 #!/bin/bash
 
-which artii &>/dev/null && {
-	artii `hostname` | lolcat
-	echo
-}
+
+
+which neofetch &>/dev/null && neofetch
 
 zsh --version
 if [[ `which mvn &>/dev/null` ]]; then
