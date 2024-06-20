@@ -55,5 +55,10 @@ else
     echo "Sorry, no supported update mechanism found."
 fi
 
-zprezto-update
+which zinit &>/dev/null && {
+	# Self update
+	zinit self-update
 
+	# Plugin update
+	zinit update
+}
