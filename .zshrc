@@ -34,8 +34,7 @@ for file in ~/.{exports,path,aliases,functions,extra,motd}; do
 done
 unset file
 
-eval "$(fzf --zsh)"
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml)"
 
