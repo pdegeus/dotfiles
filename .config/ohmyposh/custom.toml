@@ -2,6 +2,8 @@
 
 version = 2
 final_space = true
+disable_notice = true
+auto_upgrade = false
 console_title_template = '{{.Folder}} @ {{.HostName}}'
 
 [[blocks]]
@@ -58,18 +60,24 @@ console_title_template = '{{.Folder}} @ {{.HostName}}'
     background = 'p:yellow'
     template = '  '
 
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
   [[blocks.segments]]
     type = 'status'
     style = 'diamond'
-    foreground = 'p:white'
-    background = 'p:blue'
+    foreground = 'p:greenfg'
+    background = 'p:greenbg'
     background_templates = ['{{ if gt .Code 0 }}p:red{{ end }}']
     leading_diamond = '<transparent,background></>'
-    trailing_diamond = ''
+    trailing_diamond = ''
     template = ' {{ if gt .Code 0 }}{{ else }}{{ end }} '
 
     [blocks.segments.properties]
       always_enabled = true
+
 
 [[blocks]]
   type = 'rprompt'
@@ -103,6 +111,20 @@ console_title_template = '{{.Folder}} @ {{.HostName}}'
   foreground = 'p:black'
   background = 'transparent'
   template = '<p:greenbg,transparent></><p:greenfg,p:greenbg> > </><p:greenbg,transparent></> '
+
+[[tooltips]]
+  type = "git"
+  tips = [ "git", "g" ]
+  style = "diamond"
+  foreground = "#193549"
+  background = "#fffb38"
+  leading_diamond = ""
+  trailing_diamond = ""
+  template = "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
+
+    [tooltips.properties]
+    fetch_status = true
+    fetch_upstream_icon = true
 
 [palette]
   black = '#262B44'
