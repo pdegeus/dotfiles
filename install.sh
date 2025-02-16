@@ -3,17 +3,22 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget ruby watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq lsd neofetch
+	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq neofetch eza
   brew install jandedobbeleer/oh-my-posh/oh-my-posh
+  brew install --cask wezterm
 	$(brew --prefix)/opt/fzf/install --all
 }
 
 which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 which apt-get &>/dev/null && {
+  sudo mkdir -p /etc/apt/keyrings
+  wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+  sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl screen ruby ruby-dev fzf snapd neofetch
-	sudo snap install lsd --devmode
+	sudo apt-get -y install zsh git wget curl screen fzf neofetch eza
 	cp /usr/share/doc/fzf/examples/key-bindings.zsh ~/.fzf.zsh
   curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.bin
 }

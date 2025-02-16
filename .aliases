@@ -11,9 +11,9 @@ alias mvnp="mvn package"
 alias mvncp="mvn clean package"
 alias mvnv="mvn -U versions:update-parent versions:update-properties -DgenerateBackupPoms=false"
 
-which lsd &>/dev/null && {
-    alias ls="lsd"
-	alias la="ls -la"
+which eza &>/dev/null && {
+    alias ls="eza --icons --group-directories-first --git --group --git-repos"
+	alias la="ls -laa"
 	alias ll="ls -l"
 } || {
 	[[ -n "$BASH" ]] && {
