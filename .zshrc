@@ -54,7 +54,7 @@ unset file
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml)"
 
-if [ -z "$TMUX" ]
-then
-	tmux attach || tmux new
+if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
+
