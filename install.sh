@@ -5,8 +5,10 @@ which brew &>/dev/null && {
 	brew upgrade
 	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq neofetch eza
   brew install jandedobbeleer/oh-my-posh/oh-my-posh
+  brew install lusingander/tap/serie
   brew install --cask wezterm
-	$(brew --prefix)/opt/fzf/install --all
+  #brew install --cask ghostty
+  $(brew --prefix)/opt/fzf/install --all
 }
 
 which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"

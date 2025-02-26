@@ -54,3 +54,7 @@ unset file
 
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml)"
 
+if [ -z "$TMUX" ]
+then
+	tmux attach || tmux new
+fi
