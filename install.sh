@@ -3,7 +3,7 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq neofetch eza
+	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq neofetch eza tmux
   brew install jandedobbeleer/oh-my-posh/oh-my-posh
   brew install lusingander/tap/serie
   brew install --cask wezterm
@@ -20,7 +20,7 @@ which apt-get &>/dev/null && {
   sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl screen fzf neofetch eza
+	sudo apt-get -y install zsh git wget curl tmux fzf neofetch eza
 	cp /usr/share/doc/fzf/examples/key-bindings.zsh ~/.fzf.zsh
   curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.bin
 }
