@@ -52,6 +52,9 @@ unset file
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml)"
 
 if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then

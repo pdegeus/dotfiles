@@ -36,6 +36,8 @@ which setopt &>/dev/null && setopt null_glob
 export GROOVY_HOME=`command ls -dt /opt/groovy-* /usr/local/groovy-* 2>/dev/null | egrep -v "^\.$" | head -1`
 #export JBOSS_HOME=`command ls -dt /opt/jboss* /usr/local/jboss* /opt/wildfly* /usr/local/wildfly* 2>/dev/null | egrep -v "^\.$" | head -1`
 
+export NVM_DIR="$HOME/.nvm"
+
 # Apache user
 export APACHE_RUN_USER=www-data
 export APACHE_RUN_GROUP=www-data
