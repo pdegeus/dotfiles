@@ -3,7 +3,7 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq neofetch eza tmux
+	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq fastfetch eza tmux
   brew install jandedobbeleer/oh-my-posh/oh-my-posh
   brew install lusingander/tap/serie
   brew install --cask wezterm
@@ -14,13 +14,19 @@ which brew &>/dev/null && {
 which diff-so-fancy &>/dev/null && git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 which apt-get &>/dev/null && {
+  sudo apt-get update
+  sudo apt-get -y install wget curl gpg
+
   sudo mkdir -p /etc/apt/keyrings
-  wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+  sudo rm -f /etc/apt/keyrings/gierens.gpg 2>/dev/null
+  curl -s https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
   echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
   sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
 
+  sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+
 	sudo apt-get update
-	sudo apt-get -y install zsh git wget curl tmux fzf neofetch eza
+	sudo apt-get -y install zsh git tmux fzf fastfetch eza
 	cp /usr/share/doc/fzf/examples/key-bindings.zsh ~/.fzf.zsh
   curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.bin
 }

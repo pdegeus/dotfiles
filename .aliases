@@ -37,6 +37,12 @@ which eza &>/dev/null && {
 	}
 }
 
+which wezterm &>/dev/null && {
+	function wssh() {
+		wezterm cli spawn --domain-name SSH:$1
+	}
+}
+
 which bat &>/dev/null && alias cat='bat'
 which prettyping &>/dev/null && alias ping='prettyping --nolegend'
 which ncdu &>/dev/null && alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"

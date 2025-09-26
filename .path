@@ -7,6 +7,10 @@ for RUBY_BIN in `find /usr/local/lib/ruby/gems -maxdepth 2 -type d -name bin 2>/
 	export PATH="$PATH:$RUBY_BIN"
 done
 
+if [[ -e "/Applications/IntelliJ IDEA.app/Contents/MacOS/idea" ]]; then
+	export PATH="$PATH:/Applications/IntelliJ IDEA.app/Contents/MacOS"
+fi
+
 if [ "x$GROOVY_HOME" != "x" ]; then
 	export PATH="$PATH:$GROOVY_HOME/bin"
 fi
