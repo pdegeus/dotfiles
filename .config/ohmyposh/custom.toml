@@ -1,64 +1,94 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
-final_space = true
-disable_notice = true
-auto_upgrade = false
 console_title_template = '{{.Folder}} @ {{.HostName}}'
+version = 3
+final_space = true
+
+[palette]
+  black = '#262B44'
+  blue = '#4B95E9'
+  green = '#59C9A5'
+  greenbg = '#003543'
+  greenfg = '#d2ff5e'
+  orange = '#ab947c'
+  red = '#D81E5B'
+  white = '#E0DEF4'
+  yellow = '#F3AE35'
+
+[secondary_prompt]
+  template = '<p:greenbg,transparent></><p:greenfg,p:greenbg> > </><p:greenbg,transparent></> '
+  foreground = 'p:black'
+  background = 'transparent'
+
+[transient_prompt]
+  template = '<p:greenbg,transparent></><p:greenfg,p:greenbg> {{ .Folder }} </><p:greenbg,transparent> </>'
+  foreground = 'p:greenfg'
+  background = 'p:greenbg'
 
 [[blocks]]
   type = 'prompt'
   alignment = 'left'
 
   [[blocks.segments]]
-    type = 'os'
-    style = 'diamond'
-    foreground = '#fff'
-    background = '#003543'
-    leading_diamond = ''
-    template = '{{ .Icon }}'
-
-  [[blocks.segments]]
-    type = 'session'
-    style = 'diamond'
-    foreground = 'p:greenfg'
-    background = '#003543'
-    trailing_diamond = ''
-    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }} '
-
-  [[blocks.segments]]
+    template = '  {{ path .Path .Location }} '
+    foreground = 'p:black'
+    powerline_symbol = ''
+    background = 'p:orange'
     type = 'path'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = 'p:black'
-    background = 'p:orange'
-    template = '  {{ path .Path .Location }} '
 
     [blocks.segments.properties]
+      cache_duration = 'none'
       style = 'folder'
 
   [[blocks.segments]]
+    type = 'text'
+    style = 'diamond'
+    foreground = 'p:black'
+    background = '#8F5050'
+    template = "{{ if .Env.MAVEN_PROJECT_VERSION }} \ue674 {{ .Env.MAVEN_PROJECT_VERSION }} {{ end }}"
+
+  [[blocks.segments]]
+    template = ' {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
+    foreground = 'p:black'
+    powerline_symbol = ''
+    background = 'p:green'
     type = 'git'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = 'p:black'
     foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}', '{{ if gt .Ahead 0 }}p:white{{ end }}']
-    background = 'p:green'
     background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}', '{{ if gt .Ahead 0 }}#49416D{{ end }}', '{{ if gt .Behind 0 }}#7A306C{{ end }}']
-    template = ' {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
 
     [blocks.segments.properties]
       branch_max_length = 25
+      cache_duration = 'none'
       fetch_status = true
       fetch_upstream_icon = true
 
   [[blocks.segments]]
+    type = "java"     
+    style = "powerline"
+    powerline_symbol = ""
+    foreground = "#ffffff"
+    background = "#35506E"
+    template = "  {{ .Major }}.{{ .Minor }} "
+    home_enabled = true
+
+  [[blocks.segments]]
+    type = "node"
+    style = "powerline"
+    powerline_symbol = ""
+    foreground = "#ffffff"
+    background = "#6CA35E"
+    template = "  {{ .Full }} "
+
+  [[blocks.segments]]
+    template = '  '
+    foreground = 'p:white'
+    powerline_symbol = ''
+    background = 'p:yellow'
     type = 'root'
     style = 'powerline'
-    powerline_symbol = ''
-    foreground = 'p:white'
-    background = 'p:yellow'
-    template = '  '
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[blocks]]
   type = 'prompt'
@@ -66,73 +96,91 @@ console_title_template = '{{.Folder}} @ {{.HostName}}'
   newline = true
 
   [[blocks.segments]]
-    type = 'status'
+    leading_diamond = ''
+    template = '{{ .Icon }}'
+    foreground = '#fff'
+    background = '#003543'
+    type = 'os'
     style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    trailing_diamond = ''
+    template = ' {{ if .SSHSession }} {{ end }}{{ .UserName }} '
+    foreground = 'p:greenfg'
+    background = '#003543'
+    type = 'session'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    type = "executiontime"
+    style = "diamond"
+    #powerline_symbol = ""
+    foreground = "#444"
+    background = "#FF6770"
+    template = " <#fefefe></> {{ .FormattedMs }} "
+
+    [options]
+    threshold = 500
+    style = "austin"
+    always_enabled = true
+
+  [[blocks.segments]]
+    #leading_diamond = '<transparent,background></>'
+    trailing_diamond = ''
+    template = ' {{ if gt .Code 0 }} [{{ .Code }}]{{ else }}{{ end }} '
     foreground = 'p:greenfg'
     background = 'p:greenbg'
+    type = 'status'
+    style = 'diamond'
     background_templates = ['{{ if gt .Code 0 }}p:red{{ end }}']
-    leading_diamond = '<transparent,background></>'
-    trailing_diamond = ''
-    template = ' {{ if gt .Code 0 }}{{ else }}{{ end }} '
 
     [blocks.segments.properties]
       always_enabled = true
-
+      cache_duration = 'none'
 
 [[blocks]]
   type = 'rprompt'
 
   [[blocks.segments]]
-    type = "executiontime"
-    style = "austin"
-    powerline_symbol = ""
-    foreground = "#ffffff"
-    background = "#8800dd"
-    template = " <#fefefe></> {{ .FormattedMs }} at "
+    template = ' <#fefefe></> {{ .FormattedMs }} at '
+    foreground = '#ffffff'
+    powerline_symbol = ''
+    background = '#8800dd'
+    type = 'executiontime'
+    style = 'austin'
 
     [blocks.segments.properties]
-      threshold = 1
-      style = "austin"
       always_enabled = true
+      cache_duration = 'none'
+      style = 'austin'
+      threshold = 1
 
   [[blocks.segments]]
-    type = 'time'
-    style = 'plain'
+    template = '<p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
     foreground = 'p:white'
     background = 'transparent'
-    template = '<p:blue><b>{{ .CurrentDate | date "15:04:05" }}</b></>'
+    type = 'time'
+    style = 'plain'
 
-[transient_prompt]
-  foreground = 'p:greenfg'
-  background = 'p:greenbg'
-  template = '<p:greenbg,transparent></><p:greenfg,p:greenbg> {{ .Folder }} </><p:greenbg,transparent> </>'
-
-[secondary_prompt]
-  foreground = 'p:black'
-  background = 'transparent'
-  template = '<p:greenbg,transparent></><p:greenfg,p:greenbg> > </><p:greenbg,transparent></> '
+    [blocks.segments.properties]
+      cache_duration = 'none'
 
 [[tooltips]]
-  type = "git"
-  tips = [ "git", "g" ]
-  style = "diamond"
-  foreground = "#193549"
-  background = "#fffb38"
-  leading_diamond = ""
-  trailing_diamond = ""
-  template = "{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}"
+  leading_diamond = ''
+  trailing_diamond = ''
+  template = '{{ .HEAD }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}'
+  foreground = '#193549'
+  background = '#fffb38'
+  type = 'git'
+  style = 'diamond'
+  tips = ['git', 'g']
 
-    [tooltips.properties]
+  [tooltips.properties]
     fetch_status = true
     fetch_upstream_icon = true
-
-[palette]
-  black = '#262B44'
-  blue = '#4B95E9'
-  green = '#59C9A5'
-  greenfg = '#d2ff5e'
-  greenbg = '#003543'
-  orange = '#ab947c'
-  red = '#D81E5B'
-  white = '#E0DEF4'
-  yellow = '#F3AE35'

@@ -2,12 +2,5 @@
 
 which fastfetch &>/dev/null && fastfetch
 
-zsh --version
-if [[ `which mvn &>/dev/null` ]]; then
-	mvn -version | head -4
-else 
-	which java >/dev/null && java -version 2>&1 | head -1
-fi
-
 [ -n "$GROOVY_HOME" ] && echo "Groovy: $GROOVY_HOME"
 [ -n "$JBOSS_HOME" ] && echo "JBoss: $JBOSS_HOME"

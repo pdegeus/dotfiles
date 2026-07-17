@@ -34,7 +34,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # preview content
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
@@ -55,9 +55,32 @@ unset file
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+function set_maven_project_version() {
+  local pom_file="${1:-pom.xml}"
+  local version=""
+
+  if [[ -f "$pom_file" ]]; then
+    version="$(
+      xmllint \
+        --xpath 'string(/*[local-name()="project"]/*[local-name()="version"])' \
+        "$pom_file" 2>/dev/null
+    )"
+  fi
+
+  if [[ -n "$version" ]]; then
+    export MAVEN_PROJECT_VERSION="$version"
+  else
+    unset MAVEN_PROJECT_VERSION
+  fi
+}
+
+precmd_functions+=(set_maven_project_version)
+
+#eval "$(starship init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/custom.toml)"
 
 if [[ $- =~ i ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_TTY" ]]; then
   tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
 fi
+
 
