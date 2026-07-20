@@ -3,6 +3,10 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+
+# Use Neovim for the traditional vi/vim commands
+alias vi="nvim"
+alias vim="nvim"
 	
 alias mvni="mvn install"
 alias mvnc="mvn clean"
@@ -136,4 +140,3 @@ alias map="xargs -n1"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="curl -X $method"
 done
-

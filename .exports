@@ -1,5 +1,6 @@
-# Make vim the default editor
-export EDITOR="vim"
+# Make Neovim the default editor
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
@@ -44,4 +45,3 @@ export APACHE_RUN_GROUP=www-data
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-

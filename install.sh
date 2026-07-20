@@ -3,11 +3,10 @@
 which brew &>/dev/null && {
 	brew update
 	brew upgrade
-	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq fastfetch eza tmux
+	brew install zsh maven git svn wget watch zopfli sqlite bat prettyping htop diff-so-fancy ncdu fzf jq fastfetch eza tmux nvim
   brew install jandedobbeleer/oh-my-posh/oh-my-posh
   brew install lusingander/tap/serie
   brew install --cask wezterm
-  #brew install --cask ghostty
   $(brew --prefix)/opt/fzf/install --all
 }
 
