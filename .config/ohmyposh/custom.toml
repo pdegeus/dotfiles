@@ -37,7 +37,8 @@ final_space = true
 
     [blocks.segments.properties]
       cache_duration = 'none'
-      style = 'folder'
+      style = 'fish'
+      full_length_dirs = 4
 
   [[blocks.segments]]
     type = 'text'
@@ -122,7 +123,7 @@ final_space = true
     style = "diamond"
     #powerline_symbol = ""
     foreground = "#444"
-    background = "#FF6770"
+    background = "#F5BC70"
     template = " <#fefefe></> {{ .FormattedMs }} "
 
     [options]
